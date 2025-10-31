@@ -1,0 +1,356 @@
+/* File: public/css/styles.css */
+/* ===========================
+   Reset + Base
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --sidebar-bg: #2c3e50;
+  --sidebar-text: #ffffff;
+  --topbar-bg: #ffffff;
+  --content-bg: #f0f2f5;
+  --panel-bg: #ffffff;
+
+  --purple: #8f7aea;
+  --green: #29b39c;
+  --cyan: #3498db;
+  --yellow: #f5b041;
+  --dark: #4d4d4d;
+
+  --text-main: #2c3e50;
+  --text-muted: #7f8c8d;
+}
+
+html, body { height: 100%; }
+
+body {
+  display: flex;
+  background: var(--content-bg);
+  overflow: hidden;
+  color: var(--text-main);
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+.sidebar {
+  background: var(--sidebar-bg);
+  width: 260px;
+  min-width: 260px;
+  padding: 20px 18px;
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  background: #34495e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  color: #cbd5e0;
+  font-weight: 500;
+}
+
+.filters select,
+.filters input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: #ffffff;
+  color: #333;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+}
+
+.filters input::placeholder {
+  color: #999;
+}
+
+/* ===========================
+   Main
+=========================== */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===========================
+   Topbar
+=========================== */
+.topbar {
+  height: 56px;
+  background: var(--topbar-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btn,
+.fullscreen-btn {
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-wrapper { position: relative; cursor: pointer; }
+
+.icon-bell,
+.icon-msg {
+  font-size: 17px;
+  color: #666;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.badge.red { background: #e74c3c; }
+.badge.blue { background: #3498db; }
+
+.profile {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===========================
+   Content Area
+=========================== */
+.content {
+  padding: 22px 32px;
+  overflow: auto;
+  flex: 1;
+  background: var(--content-bg);
+}
+
+.page-header { margin-bottom: 18px; }
+
+.breadcrumb {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.page-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* ===========================
+   Panel
+=========================== */
+.panel {
+  background: var(--panel-bg);
+  padding: 28px 32px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ===========================
+   Button Rows
+=========================== */
+.btn-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+/* First row: compact, not flexible, single line */
+.btn-row:not(.single) {
+  flex-wrap: nowrap;
+}
+
+.btn-row:not(.single) .dropdown-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.btn-row:not(.single) .btn {
+  width: auto;
+  padding: 11px 18px;
+}
+
+/* Second row: compact behavior + dropdown width tied to button */
+.btn-row.single { 
+  margin-top: 16px; 
+  gap: 6px; 
+}
+
+.btn-row.single .dropdown-wrapper.full {
+  flex: 0 0 auto !important;      /* stop stretching */
+  width: auto !important;         /* shrink to fit button */
+}
+
+.btn-row.single .dropdown-wrapper.full .btn {
+  width: auto;                    /* compact button */
+}
+
+/* Keep the dropdown the same width as its button */
+.btn-row.single .dropdown-wrapper.full .dropdown-menu {
+  width: 100%;                    /* match wrapper/button width */
+  left: 0;
+  right: auto;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.btn i { font-size: 13px; }
+
+.btn.purple { background: var(--purple); }
+.btn.green  { background: var(--green); }
+.btn.cyan   { background: var(--cyan); }
+.btn.yellow { background: var(--yellow); }
+.btn.dark   { background: var(--dark); }
+
+/* ===========================
+   Dropdown Menu
+=========================== */
+.dropdown-menu {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;                    /* inherits compact width due to wrapper rules */
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  display: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-wrapper.active .dropdown-menu { display: block; }
+
+.dropdown-menu a {
+  display: block;
+  padding: 11px 18px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: 13px;
+  border-bottom: 1px solid #ecf0f1;
+  transition: background 0.15s;
+}
+
+.dropdown-menu a:hover { background: #f8f9fa; }
+
+.dropdown-menu a:last-child { border-bottom: none; }
+
+/* ===========================
+   Responsive (only for sidebar behavior)
+=========================== */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    height: 100vh;
+    transition: left 0.3s;
+    z-index: 1000;
+  }
+  .sidebar.open { left: 0; }
+}
