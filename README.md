@@ -58,6 +58,22 @@ Thank you for considering contributing to the Laravel framework! The contributio
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
+# JD Builder Feature
+
+## Requirements
+- Laravel 10+
+- Livewire 3.x installed via `composer require livewire/livewire` and route mapped directly to the component.  
+
+## Install
+- php artisan migrate --seed
+- npm install && npm run dev
+- Visit /jd/builder
+
+## Notes
+- Route directly maps to Livewire component (no controller).  
+- Live, reactive updates leverage `wire:model.live` in Livewire 3 for instant syncing.  
+
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print-friendly preview pane */
+@media print {
+  .no-print { display: none !important; }
+}
